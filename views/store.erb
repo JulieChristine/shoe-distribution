@@ -1,0 +1,43 @@
+<h2>Store: <%= @store.name_store() %></h2>
+
+<div class="update_form">
+  <form action="/update/store/<%=@store.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input name ='name_store' type='text' value='<%= @store.name_store %>' required/>
+    <input name ='location' type='text' value='<%= @store.location %>' required/>
+    <button type='submit' class='btn'>Update</button>
+  </form>
+</div>
+
+<div class="delete_form">
+  <form action="/delete/store/<%=@store.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type='submit' class='btn'>Delete</button>
+  </form>
+</div>
+
+<div class="brand_display">
+  <% if @brand%>
+    <% @brand.each do |brand|%>
+      <h3> Has this: <%= brand.name_brand %> </h3>
+    <%end%>
+  <% else %>
+    <p><strong>This store is not yet selling this brand.</strong></p>
+  <% end %>
+</div>
+
+<div class="brand_select">
+  <h4>Add a brand to this store:</h4>
+  <form id="update_brand_id" action="/add_brands/<%=@store.id%>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <input type="hidden" name="store_id" id="store_id" value="<%= @store.id() %>">
+    <label for="brand_select">Select the brand:  </label>
+      <br>
+      <select id="brand_id" name="brand_id">
+        <% @brands.each() do |brand| %>
+          <option value="<%= brand.id() %>"><%= brand.name_brand() %></option>
+        <% end %>
+      </select>
+    <button type="submit">Submit</button>
+  </form>
+</div>

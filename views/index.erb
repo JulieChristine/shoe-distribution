@@ -1,0 +1,77 @@
+<div class="col-md-12">
+  <h2>See your stores and brands!</h2>
+</div>
+
+<div class="col-md-6">
+
+  <h2>Brands</h2>
+  <hr>
+  <br>
+
+<!-- display the brands in the array -->
+  <!-- <% if @brands == [] %>
+
+  <p>There are currently no brands in the database</p>
+
+  <% else %> -->
+
+  <p>Current Brands</p>
+  <ul>
+
+    <% @brands.each() do |brand| %>
+
+    <li><a href="/brands/<%= brand.id() %>"><%= brand.name_brand %></a></li>
+
+    <% end %>
+
+  </ul>
+
+  <!-- <% end %> -->
+
+  <h3> Add a brand: </h3>
+  <form action="/brands" method="post">
+    <label for="new_brand">Brand Name:  </label>
+    <input type="text" name="new_brand" id="new_brand">
+    <br>
+    <button class="btn" type="submit">Add Brand</button>
+  </form>
+</div>
+
+<hr />
+
+<div class="col-md-6">
+
+  <h2>Stores</h2>
+  <hr>
+  <br>
+
+  <% if @stores == [] %>
+
+  <p>There are currently no stores in the database</p>
+
+  <% else %>
+
+  <p>Current Stores</p>
+  <ul>
+
+    <% @stores.each() do |store| %>
+
+    <li><a href="/stores/<%= store.id() %>"><%= store.name_store() %> in <%= store.location() %></a></li>
+
+    <% end %>
+
+  </ul>
+
+  <% end %>
+  <h3> Add a store: </h3>
+  <form action="/stores" method="post">
+    <label for="name_store">Store Name:  </label>
+    <input type="text" name="name_store" id="name_store">
+    <br>
+    <label for="store_name">Store location:  </label>
+    <input type="text" name="location" id="store_location">
+    <br>
+    <button class="btn" type="submit">Add Store</button>
+  </form>
+
+</div>

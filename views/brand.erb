@@ -1,0 +1,18 @@
+<h2> <%= @brand.name_brand() %></h2>
+
+<div class="update_form">
+  <form action="/update/brand/<%=@brand.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input name ='name_brand' type='text' value='<%= @brand.name_brand %>' required/>
+    <button type='submit' class='btn'>Update</button>
+  </form>
+</div>
+
+<div class="delete_form">
+  <form action="/brand/<%=@brand.id()%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type='submit' class='btn'>Delete</button>
+  </form>
+</div>
+
+<!-- to check -->

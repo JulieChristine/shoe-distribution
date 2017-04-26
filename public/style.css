@@ -1,0 +1,8 @@
+.brand_display, .store_display {
+  margin-bottom: 20px;
+  background-color: green;
+}
+
+.brand_select, .store_select {
+  background-color: purple;
+}
